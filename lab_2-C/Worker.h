@@ -12,9 +12,8 @@ struct Worker {
     int numberWorker;     // номер работника
 };
 
+void InicWorker(struct Worker* worker);
 void ReadWorker(struct Worker *worker);
-
-
 void SetSalary(struct Worker* worker);
 void SetWorkExperience(struct Worker* worker);
 void SetNumberWorker(struct Worker* worker);

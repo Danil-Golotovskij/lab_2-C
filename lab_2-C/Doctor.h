@@ -13,6 +13,7 @@ struct Doctor {
     char category[40];          // Категория
 };
 
+void InicDoctor(Doctor* doctor);
 void ReadDoctor(Doctor * doctor);
 void SetSpecialization(Doctor* doctor);
 void SetCategory(Doctor* doctor);

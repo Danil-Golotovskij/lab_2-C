@@ -15,6 +15,7 @@ struct Patient {
 
 void FindAll(struct Patient* patient, int numberDoctor);
 
+void InicPatient(struct Patient* patient);
 void ReadPatient(struct Patient* patient);
 void SetNumberPatient(struct Patient* patient);
 void SetNumberDoctor(struct Patient* patient);

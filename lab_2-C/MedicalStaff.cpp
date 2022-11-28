@@ -10,28 +10,45 @@ void Find(MedicalStaff* medicalStaff, int a, int b) {
 
 //--------------------------------------------------------------------
 
+void InicMedicalStaff(MedicalStaff* medicalStaff) {
+    strcpy(medicalStaff->personPolyclinic.fio, "-");
+    strcpy(medicalStaff->personPolyclinic.pol, "-");
+    medicalStaff->personPolyclinic.age = 0;
+    medicalStaff->worker.salary = 0;
+    medicalStaff->worker.workExperience = 0;
+    medicalStaff->worker.numberWorker = 0;
+    medicalStaff->student = 0;
+    strcpy(medicalStaff->education, "-");
+}
+
 void ReadMedicalStaff(MedicalStaff* medicalStaff) {
     char tmpFio[40];
-    scanf("Введите ФИО: %s", &tmpFio);
+    printf("Введите ФИО: ");
+    scanf("%s", &tmpFio);
     strcpy(medicalStaff->personPolyclinic.fio, tmpFio);
 
     char tmpPol[40];
-    scanf("Введите пол: %s", &tmpPol);
+    printf("Введите пол: ");
+    scanf("%s", &tmpPol);
     strcpy(medicalStaff->personPolyclinic.pol, tmpPol);
 
     int tmpAge;
+    printf("Введите возраст: ");
     scanf("%d", &tmpAge);
     medicalStaff->personPolyclinic.age = tmpAge;
 
     int tmpsalary;
+    printf("Введите зарплату: ");
     scanf("%d", &tmpsalary);
     medicalStaff->worker.salary = tmpAge;
 
     int tmpWorkExperience;
+    printf("Введите стаж работника: ");
     scanf("%d", &tmpWorkExperience);
     medicalStaff->worker.workExperience = tmpAge;
 
     int tmpNumberWorker;
+    printf("Введите номер работника");
     scanf("%d", &tmpNumberWorker);
     medicalStaff->worker.numberWorker = tmpAge;
 
@@ -40,14 +57,17 @@ void ReadMedicalStaff(MedicalStaff* medicalStaff) {
 }
 
 void SetStudent(MedicalStaff* medicalStaff) {
-    bool tmp;
-    scanf("Введите образование: %b", &tmp);
-    medicalStaff->student = tmp;
+    int tmp;
+    printf("Является ли студентом 1-да, 0-нет: ");
+    scanf("%d", &tmp);
+    if(tmp == 1)
+    medicalStaff->student = 1;
 }
 
 void SetEducation(MedicalStaff* medicalStaff) {
     char tmp[40];
-    scanf("Введите образование: %s", &tmp);
+    printf("Введите образование: ");
+    scanf("%s", &tmp);
     strcpy(medicalStaff->education, tmp);
 }
 
@@ -55,7 +75,7 @@ void SetEducation(MedicalStaff* medicalStaff) {
 
 void DisplayMedicalStaff(MedicalStaff* medicalStaff) {
     printf("ФИО: %s\n", medicalStaff->personPolyclinic.fio);
-    printf("год рождения: %d\n", medicalStaff->personPolyclinic.age);
+    printf("возраст: %d\n", medicalStaff->personPolyclinic.age);
     printf("пол: %s\n", medicalStaff->personPolyclinic.pol);
     printf("зарплата: %d\n", medicalStaff->worker.salary);
     printf("трудовой стаж: %d\n", medicalStaff->worker.workExperience);

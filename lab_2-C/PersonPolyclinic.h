@@ -9,12 +9,13 @@ struct PersonPolyclinic {
     int  age;       // Возраст  
 };
 
-void Read(struct PersonPolyclinic* personPolyclinic);
+void InicPersonPolyclinic(struct PersonPolyclinic* personPolyclinic);
+void ReadPersonPolyclinic(struct PersonPolyclinic* personPolyclinic);
 void SetFio(struct PersonPolyclinic* personPolyclinic);
 void SetAge(struct PersonPolyclinic* personPolyclinic);
 void SetPol(struct PersonPolyclinic* personPolyclinic);
 
-void Display(struct PersonPolyclinic* personPolyclinic);
+void DisplayPersonPolyclinic(struct PersonPolyclinic* personPolyclinic);
 char* GetFio(struct PersonPolyclinic* personPolyclinic);
 char* GetPol(struct PersonPolyclinic* personPolyclinic);
 int  GetAge(struct PersonPolyclinic* personPolyclinic);

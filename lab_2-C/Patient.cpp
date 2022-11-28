@@ -4,43 +4,63 @@
 
 void FindAll(struct Patient* patient,int numberDoctor1) {
     int tmp = 0;
-    scanf("Введите ФИО: %s", &tmp);
+    printf("Введите номер доктора: ");
+    scanf("%s", &tmp);
     if (GetNumberDoctor(patient) == tmp) {
-        scanf( "ФИО пациента: %s", patient->personPolyclinic.fio);
+        printf( "ФИО пациента: %s", patient->personPolyclinic.fio);
     }
 }
 
 //--------------------------------------------------------------------
 
+void InicPatient(struct Patient* patient) {
+    strcpy(patient->personPolyclinic.fio, "-");
+    strcpy(patient->personPolyclinic.pol, "-");
+    patient->personPolyclinic.age = 0;
+    patient->numberPatient = 0;
+    patient->numberDoctor = 0;
+    strcpy(patient->diagnosis, "-");
+}
+
 void ReadPatient(struct Patient* patient) {
     char tmpFio[40];
-    scanf("Введите ФИО: %s", &tmpFio);
+    printf("Введите ФИО: ");
+    scanf("%s", &tmpFio);
     strcpy(patient->personPolyclinic.fio, tmpFio);
 
     char tmpPol[40];
-    scanf("Введите пол: %s", &tmpPol);
+    printf("Введите пол: ");
+    scanf("%s", &tmpPol);
     strcpy(patient->personPolyclinic.pol, tmpPol);
 
     int tmpAge;
-    scanf("Введите возраст: %d", &tmpAge);
+    printf("Введите возраст: ");
+    scanf("%d", &tmpAge);
     patient->personPolyclinic.age = tmpAge;
+
+    SetNumberPatient(patient);
+    SetNumberDoctor(patient);
+    SetDiagnosis(patient);
 }
 
 void SetNumberPatient(struct Patient* patient) {
     int tmp;
-    scanf("Введите номер пациента: %d", &tmp);
+    printf("Введите номер пациента: ");
+    scanf("%d", &tmp);
     patient->numberPatient = tmp;
 }
 
 void SetNumberDoctor(struct Patient* patient) {
     int tmp;
-    scanf("Введите номер доктора: %d", &tmp);
+    printf("Введите номер доктора: ");
+    scanf("%d", &tmp);
     patient->numberDoctor = tmp;
 }
 
 void SetDiagnosis(struct Patient* patient) {
     char tmp[40];
-    scanf("Введите диагноз: %s", &tmp);
+    printf("Введите диагноз: ");
+    scanf("%s", &tmp);
     strcpy(patient->diagnosis, tmp);
 }
 
@@ -48,7 +68,7 @@ void SetDiagnosis(struct Patient* patient) {
 
 void DisplayPatient(struct Patient* patient) {
     printf("ФИО: %s\n", patient->personPolyclinic.fio);
-    printf("год рождения: %d\n", patient->personPolyclinic.age);
+    printf("возраст: %d\n", patient->personPolyclinic.age);
     printf("пол: %s\n", patient->personPolyclinic.pol);
     printf("номер пациента: %d\n", patient->numberPatient);
     printf("номер лечащего врача: %d\n", patient->numberDoctor);

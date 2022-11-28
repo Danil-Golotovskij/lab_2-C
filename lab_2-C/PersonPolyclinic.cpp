@@ -2,7 +2,13 @@
 
 //--------------------------------------------------------------------
 
-void Read(struct PersonPolyclinic *personPolyclinic) {
+void InicPersonPolyclinic(struct PersonPolyclinic* personPolyclinic) {
+    strcpy(personPolyclinic->fio, "-");
+    personPolyclinic->age = 0;
+    strcpy(personPolyclinic->fio, "-");
+}
+
+void ReadPersonPolyclinic(struct PersonPolyclinic *personPolyclinic) {
     SetFio(personPolyclinic);
     SetAge(personPolyclinic);
     SetPol(personPolyclinic);
@@ -10,29 +16,32 @@ void Read(struct PersonPolyclinic *personPolyclinic) {
 
 void SetFio(struct PersonPolyclinic* personPolyclinic) {
     char tmp[40];
-    scanf("Введите ФИО: %s", &tmp);
+    printf("Введите ФИО: ");
+    scanf("%s", &tmp);
     strcpy(personPolyclinic->fio, tmp);
 }
 
 void SetAge(struct PersonPolyclinic *personPolyclinic) {
     int tmp;
-    scanf("Введите возраст: %d", &tmp);
+    printf("Введите возраст: ");
+    scanf("%d", &tmp);
     personPolyclinic->age = tmp;
 }
 
 
 void SetPol(struct PersonPolyclinic* personPolyclinic) {
     char tmp[40];
-    scanf("Введите пол: %s", &tmp);
+    printf("Введите пол: ");
+    scanf("%s", &tmp);
     strcpy(personPolyclinic->pol, tmp);
 }
 
 //--------------------------------------------------------------------
 
-void Display(struct PersonPolyclinic* personPolyclinic) {
-    printf("ФИО: %s", personPolyclinic->fio);
-    printf("год рождения: %d", personPolyclinic->age);
-    printf("пол: %s", personPolyclinic->pol);
+void DisplayPersonPolyclinic(struct PersonPolyclinic* personPolyclinic) {
+    printf("ФИО: %s\n", personPolyclinic->fio);
+    printf("возраст: %d\n", personPolyclinic->age);
+    printf("пол: %s\n", personPolyclinic->pol);
 }
 
 
